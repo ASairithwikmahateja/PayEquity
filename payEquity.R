@@ -35,7 +35,6 @@ server <- function(input, output) {
   output$plot <- renderPlot(ggplot(RegData, aes(x = age+perfEval+seniority, y = totalPay, col = gender)) + geom_point() + geom_smooth(method = "lm", se = FALSE))
   output$location <- renderText(paste0("x=", input$onplotclick$x, "\ny=", input$onplotclick$y))
 
-  oaxacamodel <- oaxaca()
 }
 
 shinyApp(ui = ui, server = server)

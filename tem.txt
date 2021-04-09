@@ -22,7 +22,6 @@ ggplot(RegData, aes(x = mean(as.numeric(c(input$DependentVariable))), y = input$
 output$plot <- renderPlot({
 ggplot(RegData, aes(x = mean(as.numeric(strsplit(as.character(input$DependentVariable)," "))), y = input$IndependentVariable, col = gender)) + geom_point() + geom_smooth(method = "lm", se = FALSE)
 })
-  
 
 
 ggplot(data = melt(RegData %>% group_by(gender) %>% summarise(n(), min(basePay), max(basePay)),id = "gender"), aes(x=gender, y=value, fill=variable)) + geom_bar(position = 'stack', stat='identity') 
@@ -31,7 +30,6 @@ ggplot(data = melt(RegData %>% group_by(gender) %>% summarise(n(), min(basePay),
 https://groups.google.com/g/shiny-discuss/c/pMLBTKUXu6s?pli=1
 https://stackoverflow.com/questions/43237082/passing-reactive-input-into-axis-of-a-plotyly-chart-in-r-shiny
 https://community.rstudio.com/t/dynamically-update-the-axis-range-using-sliders-based-on-the-selected-column/16091
-
 http://rstudio-pubs-static.s3.amazonaws.com/185329_81d1726b7d0548fcb239ea59fd30d18f.html#(1)
 
 
